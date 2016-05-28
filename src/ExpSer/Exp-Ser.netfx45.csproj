@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Public\ILogger.cs" />
     <Compile Include="Public\ISerializer.cs" />
+    <Compile Include="Public\NullLogger.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Expressions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
