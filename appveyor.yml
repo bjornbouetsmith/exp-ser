@@ -1,0 +1,16 @@
+version: 1.0.{build}
+clone_folder: c:\projects\ExpSer
+build_script:
+  - Msbuild.exe src/ExpSer.proj /verbosity:minimal /t:rebuild
+test_script:
+  - xunit.console.clr4 "build\bin\Debug\.NET Framework 4.5\ExpSer.UnitTests.dll" /appveyor /noshadow
+  - nuget.exe install OpenCover -ExcludeVersion
+  - dir
+  - OpenCover\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"\"C:\projects\ExpSer\build\bin\Debug\.NET Framework 4.5\NLog.UnitTests.dll\" -appveyor -noshadow"  -returntargetcode -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:coverage.xml
+  - "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
+  - pip install codecov
+  - codecov -f "coverage.xml"
+deploy: off
+# preserve "packages" directory in the root of build folder but will reset it if packages.config is modified
+cache:
+  - packages -> **\packages.config
