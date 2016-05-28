@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exp-Ser.net45", "ExpSer\Exp-Ser.net45.csproj", "{39FA4B46-3855-4200-AE99-52B12C9AF97E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exp-Ser.netfx45", "ExpSer\Exp-Ser.netfx45.csproj", "{39FA4B46-3855-4200-AE99-52B12C9AF97E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exp-Ser.net45.unittests", "ExpSer.Tests\Exp-Ser.net45.unittests.csproj", "{A098B574-1510-4356-B793-F0B797E6FCD5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exp-Ser.netfx45.unittests", "ExpSer.Tests\Exp-Ser.netfx45.unittests.csproj", "{A098B574-1510-4356-B793-F0B797E6FCD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
