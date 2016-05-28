@@ -2,11 +2,11 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
 
   
-  
   <UsingTask AssemblyFile="packages\xunit.1.9.1\lib\net20\xunit.runner.msbuild.dll" TaskName="Xunit.Runner.MSBuild.xunit"/>
   
   <PropertyGroup>
 	<SolutionDir>.\</SolutionDir>
+	<ProjectDir>ExpSer.Tests\</ProjectDir>
     <Configuration Condition="'$(Configuration)'==''">Debug</Configuration>
     <BaseOutputDirectory>$(MSBuildProjectDirectory)\..\build\</BaseOutputDirectory>
     <ProjectTarget Condition="'$(ProjectTarget)'==''">Build</ProjectTarget>
@@ -18,7 +18,7 @@
     <IgnoreBuildFailures Condition=" '$(IsNightlyBuild)'=='true' ">false</IgnoreBuildFailures>
 	<BuildNetFX45>true</BuildNetFX45>
   </PropertyGroup>
-  <Import Project=".nuget\NuGet.targets"/>
+
    <ItemGroup>
     <!--The info for the nuspec-->
         
@@ -50,9 +50,12 @@
      <RemoveDir Directories="@(TargetFramework -> '$(BaseOutputDirectory)bin\$(Configuration)\%(Identity)')" />
      <RemoveDir Directories="@(TargetFramework -> '$(BaseOutputDirectory)obj\$(Configuration)\%(Identity)')" />
   </Target>
-  
+    <Import Project=".nuget\NuGet.targets"/>
+  <Target Name="NugetRestore">
+	<CallTarget Targets="RestorePackages"/>
+  </Target>
     
-  <Target Name="Build" DependsOnTargets="RestorePackages">
+  <Target Name="Build" DependsOnTargets="NugetRestore">
     <PropertyGroup>
         <BuildInfoFileContent>
 // automatically generated

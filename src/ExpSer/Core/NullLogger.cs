@@ -1,6 +1,8 @@
 ﻿using System;
 
-namespace ExpSer.Public
+using ExpSer.Public;
+
+namespace ExpSer.Core
 {
     internal class NullLogger : ILogger
     {
