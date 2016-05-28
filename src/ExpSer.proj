@@ -72,6 +72,12 @@
              ToolsVersion="%(TargetFramework.ToolsVersion)" 
              ContinueOnError="$(IgnoreBuildFailures)" 
              StopOnFirstFailure="false" />
-    
+			 
+    <MSBuild Projects="ExpSer.Tests\Exp-Ser%(TargetFramework.ProjectFileSuffix).unittests.csproj" 
+             Targets="Build" 
+             Properties="$(StyleCopProperties);%(TargetFramework.Properties);BaseOutputDirectory=$(BaseOutputDirectory);BuildInfoFile=$(BuildInfoFile)" 
+             ToolsVersion="%(TargetFramework.ToolsVersion)" 
+             ContinueOnError="$(IgnoreBuildFailures)" 
+             StopOnFirstFailure="false" />
   </Target>
 </Project>
